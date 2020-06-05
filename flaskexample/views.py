@@ -72,18 +72,10 @@ def cesareans_page_fancy():
 def cesareans_input():
    return render_template("input.html")
 
+
 @app.route('/output')
-def cesareans_output():
- #pull 'birth_month' from input field and store it
- patient = request.args.get('color_name')
-   #just select the Cesareans  from the birth dtabase for the month that the user inputs
- query = "SELECT index, color_name, warm_cool FROM pigment_info WHERE color_name='%s'" % patient
- print(query)
- query_results=pd.read_sql_query(query,con)
- print(query_results)
- births = []
- for i in range(0,query_results.shape[0]):
-     births.append(dict(index=query_results.iloc[i]['index'], color_name=query_results.iloc[i]['color_name'], warm_cool=query_results.iloc[i]['warm_cool']))
-     the_result = ModelIt(patient,births)
- return render_template("output.html", births = births, the_result = the_result)
+def cesareans_output():  
+    url = request.args.get('url')
+    the_result = ModelIt(url)
+    return render_template("output.html", the_result = the_result)
 

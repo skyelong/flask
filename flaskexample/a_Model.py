@@ -5,11 +5,11 @@ Created on Thu Jun  4 16:39:18 2020
 
 @author: macbook
 """
+import urllib.request
 
-def ModelIt(fromUser  = 'Default', births = []):
- in_month = len(births)
- print('The number born is %i' % in_month)
- result = in_month
+def ModelIt(fromUser  = 'Default', url = ""):
+ urllib.request.urlretrieve(url, "image.jpg")
+ result = "hi!"
  if fromUser != 'Default':
    return result
  else:

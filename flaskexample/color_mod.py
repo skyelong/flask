@@ -27,6 +27,9 @@ username = 'macbook'
 pswd = 'DarwinRulez!1'
 
 engine = create_engine('postgresql://%s:%s@localhost/%s'%(username,pswd,dbname))
+
+#
+
 print('postgresql://%s:%s@localhost/%s'%(username,pswd,dbname))
 print(engine.url)
 
