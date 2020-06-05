@@ -40,7 +40,7 @@ def home():
 @app.route('/greet')
 def greet():
     username = request.args.get('username', 'World')
-    urllib.request.urlretrieve(username, "image.jpg")
+    urllib.request.urlretrieve(username, "flaskexample/static/image.jpg")
     dbname = 'colors'
     username = 'macbook'
     pswd = 'DarwinRulez!1'
@@ -67,7 +67,7 @@ def greet():
 
     knn.fit(X_train, y_train)
 
-    img = io.imread('image.jpg')
+    img = io.imread('flaskexample/static/image.jpg')
     img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
     pixels = np.float32(img.reshape(-1, 3))
@@ -113,6 +113,9 @@ def greet():
          <html><body>
              <h2>Here are your colors</h2>
              {0}
+             
+             
+            <img src="{{url_for('flaskexample', filename = 'image.jpg')}}"/>
          </body></html>
          """.format(j_str)
 
