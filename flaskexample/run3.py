@@ -56,12 +56,12 @@ def greet():
     con = psycopg2.connect(database = dbname, user = username, host='localhost', password=pswd)
 
     X_sql = sql_query = """
-    SELECT h,s,v FROM pigment_hsv;
+    SELECT h FROM pigment_hsv2;
     """
     X = pd.read_sql_query(X_sql,con)
 
     y_sql  = """
-    SELECT image_number FROM pigment_hsv;
+    SELECT image_number FROM pigment_hsv2;
     """
     y = pd.read_sql_query(y_sql,con)
 
