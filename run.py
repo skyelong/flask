@@ -8,6 +8,4 @@ Created on Thu Jun  4 12:09:11 2020
 
 #!/usr/bin/env python
 from flaskexample import app
-
-
 app.run(debug = True)
